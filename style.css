@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "微軟正黑體";
+    background: url(./image/map.png);
+    color: rgb(41, 41, 41);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* overflow:hidden; //自動隱藏超出的文字或圖片。 */
+    /* 用以控制滑鼠移動畫面，不超出視窗，以造成擴張。 */
+    overflow: hidden;
+    /* cursor: none; 隱藏滑鼠鼠標，讓鼠標以圖片方式呈現，不會看見滑鼠箭頭。 */
+    cursor: none;
+}
+
+.list {
+    width: 800px;
+    height: 140px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background: url(./image/talk.png);
+}
+
+.box {
+    padding-left: 45px;
+}
+
+.box2 {
+    padding-left: 50px;
+    font-size: 18px;
+}
+
+.box3 {
+    padding-left: 40px;
+}
+
+.box3 #start {
+    border: 2px solid rgb(59, 59, 59);
+    width: 90px;
+    height: 50px;
+}
+
+.score {
+    /* margin-bottom: 0.5rem; */
+    font-weight: bolder;
+    font-size: 2.5rem;
+}
+
+.board {
+    height: 760px;
+    width: 1090px;
+    /* border: 1px solid black; */
+    /* display:grid 表格屬性，將畫面網格化 */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    /* gap: 60px; */
+}
+
+.hole {
+    background-color: rgb(157, 84, 6);
+    border-radius: 50%;
+    box-shadow: inset 0 40px 0 8px rgb(50, 18, 2),
+        inset 0 20px 20px 15px rgba(0, 0, 0, .5),
+        0 0 5px rgba(0, 0, 0, .5);
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+}
+
+.hole .bear {
+    width: 80%;
+    position: absolute;
+    top: 16%;
+    left: 50%;
+    /* 用於平移X軸 -50% */
+    transform: translateX(-50%);
+    bottom: 0;
+    /* 設定動畫效果 淡入淡出 0.3 秒 */
+    animation: rise .3s ease-out;
+}
+
+#show {
+    border: 2px solid rgb(59, 59, 59);
+    margin-left: 40px;
+    width: 90px;
+    height: 50px;
+}
+
+#war {
+    position: relative;
+    margin-top: 20px;
+    top: 15%;
+    width: 910px;
+    height: 710px;
+}
+
+dialog {
+    text-align: center;
+    line-height: 400px;
+    width: 1100px;
+    height: 800px;
+    border: none;
+    background-color: rgba(224, 224, 224, 0.9);
+    box-shadow: 0 2px 6px rgb(187, 187, 187);
+    border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    left: 21%;
+    overflow: hidden;
+}
+
+#close {
+    width: 110px;
+    height: 40px;
+    position: absolute;
+    top: 93%;
+    left: 43%;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* .hole .mole {
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    animation: rise .3s ease-out;
+} */
+
+/* 動畫關鍵楨數，控制物體上升與下降位置 */
+@keyframes rise {
+    0% {
+        transform: translateX(-50%) translateY(100%);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+.mouse {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 95px;
+    left: 95px;
+    /* background-color: rgb(181, 105, 6); */
+    background-image: url('./image/ball.png');
+    background-size: 100% 100%;
+    /* 調整圖示與滑鼠鼠標位置 */
+    transform: translate(-45%, -45%);
+    /* 移動時間差 */
+    transition: transform .1s;
+
+    pointer-events: none;
+}
+
+/* 滑鼠點擊時所產生的變化現象 */
+.mouse.active {
+    transform: translate(-20%, -20%) rotate(-45deg);
+    transition: transform .2s;
+}

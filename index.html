@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>月見山捕捉</title>
+</head>
+
+<body>
+    <!-- 用來進行分數的計算 -->
+    <div class="list">
+        <div class="box">
+            <h1 class="score">總分數: <span>0</span></h1>
+        </div>
+        <div class="box2">
+            <h1>時間剩餘: <span class="text-time"></span></h1>
+        </div>
+        <div class="box3">
+            <button id="start">開始遊戲</button>
+        </div>
+        <button id="show">遊戲說明</button>
+        <dialog id="infoModal">
+            <div>
+                <!-- <p>這是 html 的 dialog!!</p> -->
+                <img id="war" src="./image/war.png">
+            </div>
+            <button id="close">關閉視窗</button>
+        </dialog>
+    </div>
+
+    <div class="board">
+        <div class="hole">
+            <!-- <img src="image/Bear.png" class="bear"> -->
+        </div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+        <div class="hole"></div>
+    </div>
+    <div class="mouse"></div>
+
+    <script src="./jquery-3.6.1.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
